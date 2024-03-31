@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Appointment Cards</title>
+		<style>
+			/* Basic styling for the appointment card container */
+			.appointment-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+			}
+
+			/* Basic styling for the appointment card */
+			.appointment-card {
+				position: relative;
+				width: 300px;
+				padding: 20px;
+				background-color: #f0f0f0;
+				border-radius: 10px;
+				overflow: hidden;
+				transition: transform 0.3s ease; /* Transition for card movement */
+			}
+
+			/* Styling for the options (edit and delete) */
+			.options {
+				position: absolute;
+				top: 0;
+				right: -100px; /* Initially hidden */
+				width: 100px;
+				height: 100%;
+				background-color: #e0e0e0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				transition: right 0.3s ease; /* Transition for options reveal */
+			}
+
+			/* Styling for option buttons */
+			.options button {
+				background: none;
+				border: none;
+				padding: 10px;
+				cursor: pointer;
+			}
+
+			/* Show the options when card is moved */
+			.appointment-card.show-options .options {
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Container for Appointment Cards -->
+		<div class="appointment-container">
+			<!-- First Appointment Card -->
+			<div class="appointment-card" id="appointmentCard1">
+				<p>Appointment Name: Example 1</p>
+				<div class="options">
+					<button class="editButton">Edit</button>
+					<button class="deleteButton">Delete</button>
+				</div>
+			</div>
+
+			<!-- Second Appointment Card -->
+			<div class="appointment-card" id="appointmentCard2">
+				<p>Appointment Name: Example 2</p>
+				<div class="options">
+					<button class="editButton">Edit</button>
+					<button class="deleteButton">Delete</button>
+				</div>
+			</div>
+
+			<!-- Add more appointment cards as needed -->
+		</div>
+
+		<script>
+			// Get all appointment cards
+			const appointmentCards = document.querySelectorAll(".appointment-card");
+
+			// Attach event listeners to each appointment card
+			appointmentCards.forEach((appointmentCard) => {
+				let startX = 0;
+
+				appointmentCard.addEventListener("mousedown", function (event) {
+					startX = event.clientX;
+				});
+
+				appointmentCard.addEventListener("mouseup", function (event) {
+					const deltaX = event.clientX - startX;
+					if (deltaX < -50) {
+						// Swipe left threshold
+						appointmentCard.classList.toggle("show-options");
+						appointmentCard.style.transform = "translateX(-100px)"; // Move card to the left
+					} else {
+						appointmentCard.classList.remove("show-options"); // Hide options
+						appointmentCard.style.transform = "translateX(0)"; // Move card back to original position
+					}
+				});
+
+				// Event listener to prevent context menu from showing up
+				appointmentCard.addEventListener("contextmenu", function (event) {
+					event.preventDefault();
+				});
+
+				// Edit and Delete button functionality for each card
+				const editButton = appointmentCard.querySelector(".editButton");
+				const deleteButton = appointmentCard.querySelector(".deleteButton");
+
+				editButton.addEventListener("click", function () {
+					console.log("Edit button clicked for: ", appointmentCard.id);
+				});
+
+				deleteButton.addEventListener("click", function () {
+					console.log("Delete button clicked for: ", appointmentCard.id);
+				});
+			});
+
+			// Event listener to remove "show options" state when clicking outside appointment card
+			document.body.addEventListener("click", function (event) {
+				appointmentCards.forEach((appointmentCard) => {
+					if (!appointmentCard.contains(event.target)) {
+						appointmentCard.classList.remove("show-options");
+						appointmentCard.style.transform = "translateX(0)"; // Move card back to original position
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
