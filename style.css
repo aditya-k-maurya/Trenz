@@ -6,12 +6,33 @@
 		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.appointment {
+	padding-top: 3rem;
+}
+
+.trenz-bg {
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	position: fixed;
+	top: 0px;
+	z-index: -1;
+}
+
+.appointment-container {
+	background-color: white;
+	max-width: 800px;
+	margin: auto;
+	border-radius: 20px;
+	padding: 2rem 4%;
+}
+
 .hero {
-	padding: 6rem 20px;
+	padding: 4rem 0;
 	text-align: center;
 	border-bottom: 2px solid rgb(168, 168, 168);
 }
-
+/* 
 .hero h1 {
 	font-size: 6rem;
 	font-weight: 800;
@@ -22,16 +43,7 @@
 .hero p {
 	font-weight: 700;
 	letter-spacing: 0.15rem;
-}
-
-.appointment {
-	padding: 20px;
-}
-
-.appointment-container {
-	max-width: 1200px;
-	margin: auto;
-}
+} */
 
 .appointment-btns {
 	display: flex;
@@ -59,9 +71,9 @@
 }
 
 .appointment h2 {
-	font-size: 3rem;
-	font-weight: 500;
-	margin-top: 2rem;
+	font-size: 2.8rem;
+	font-weight: 400;
+	margin-top: 1rem;
 	text-align: center;
 }
 
@@ -171,15 +183,25 @@ form {
 	cursor: pointer;
 }
 
+@media (max-width: 1000px) {
+	.trenz-bg {
+		display: none;
+	}
+
+	.hero {
+		padding: 2rem 0 4rem 0;
+	}
+}
+
 @media (max-width: 650px) {
 	.hero {
 		padding: 2rem 20px;
 	}
 
-	.hero h1 {
+	/* .hero h1 {
 		font-size: 4.5rem;
 		line-height: 4.5rem;
-		margin-bottom: -0.3rem;
+		margin-bottom: -0.6rem;
 	}
 
 	.hero p {
@@ -187,7 +209,7 @@ form {
 		display: inline;
 		font-weight: 700;
 		margin-right: -4rem;
-	}
+	} */
 
 	.appointment-btns {
 		gap: 0.5rem;
@@ -195,7 +217,7 @@ form {
 
 	.appointment-btn,
 	.transaction-btn {
-		padding: 6px 1.2rem;
+		padding: 6px 1rem;
 		font-size: 0.9rem;
 	}
 
@@ -203,6 +225,18 @@ form {
 		font-size: 2.4rem;
 		margin-top: 1rem;
 		font-weight: 400;
+	}
+
+	.current-date h4 {
+		font-size: 0.8rem;
+	}
+
+	.card-text h3 {
+		font-size: 1.4rem;
+	}
+
+	.card-text p {
+		font-size: 0.8rem;
 	}
 
 	.appointment-more {
