@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
 	const appointmentsData = [
 		{
 			date: "September 12, 2023",
@@ -14,12 +13,21 @@ document.addEventListener("DOMContentLoaded", function () {
 			duration: "60 Minute(s)",
 		},
 		{
-			date: "September 14, 2023",
+			date: "September 13, 2023",
 			name: "Hair Coloring",
 			time: "2:00 PM",
 			duration: "60 Minute(s)",
 		},
+		{
+			date: "September 12, 2023",
+			name: "Hair Coloring",
+			time: "2:00 PM",
+			duration: "60 Minute(s)",
+		},
+		// Add more appointments here as needed
 	];
+
+	appointmentsData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
 	renderAppointments(appointmentsData);
 });
@@ -66,7 +74,6 @@ function createAppointmentDateContainer(date) {
 	return appointmentDateContainer;
 }
 
-
 function createAppointmentCard(appointment) {
 	const appointmentCard = document.createElement("div");
 	appointmentCard.classList.add("appointment-card");
@@ -77,14 +84,16 @@ function createAppointmentCard(appointment) {
         </div>
         <div class="appointment-option">
             <img class="appointment-done-img" src="img/accept.png" alt="" />
-            <div class="edit-btn">
-                <img src="img/more.png" alt="Edit" />
-                <p>Edit</p>
-            </div>
-            <div class="delete-btn">
-                <img src="img/close.png" alt="Edit" />
-                <p>Delete</p>
-            </div>
+            <div class="appointment-more">
+							<div class="edit-btn">
+								<img src="img/more.png" alt="Edit" />
+								<p>Edit</p>
+							</div>
+							<div class="delete-btn">
+								<img src="img/close.png" alt="Edit" />
+								<p>Delete</p>
+							</div>
+						</div>
         </div>
     `;
 	return appointmentCard;

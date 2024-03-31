@@ -20,7 +20,7 @@
 					<div class="transaction-btn">TRANSACTIONS</div>
 				</div>
 
-				<h2>Appointment</h2>
+				<h2>Appointments</h2>
 
 				<form action="">
 					<input type="checkbox" id="showCheckbox" />
@@ -41,13 +41,15 @@
 							<div class="appointment-option">
 								<img class="appointment-done-img" src="img/accept.png" alt="" />
 
-								<div class="edit-btn">
-									<img src="img/more.png" alt="Edit" />
-									<p>Edit</p>
-								</div>
-								<div class="delete-btn">
-									<img src="img/close.png" alt="Edit" />
-									<p>Delete</p>
+								<div class="appointment-more">
+									<div class="edit-btn">
+										<img src="img/more.png" alt="Edit" />
+										<p>Edit</p>
+									</div>
+									<div class="delete-btn">
+										<img src="img/close.png" alt="Edit" />
+										<p>Delete</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -58,4 +60,39 @@
 	</body>
 
 	<script src="script.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Get all appointment cards
+			const appointmentCards = document.querySelectorAll(".appointment-card");
+			const windowWidth = window.innerWidth;
+
+			// Attach event listeners to each appointment card
+			appointmentCards.forEach((appointmentCard) => {
+				let startX = 0;
+				let appointmentMore =
+					appointmentCard.querySelector(".appointment-more");
+
+				appointmentCard.addEventListener("mousedown", function (event) {
+					startX = event.clientX;
+				});
+
+				appointmentCard.addEventListener("mouseup", function (event) {
+					const deltaX = event.clientX - startX;
+					if (windowWidth < 650) {
+						if (deltaX < -50) {
+							console.log("here");
+							appointmentMore.style.display = "flex";
+							appointmentMore.style.right = "0px";
+							appointmentCard.style.transform = "translateX(-140px)";
+						} else {
+							appointmentMore.style.display = "none";
+							appointmentMore.style.right = "-140px";
+							appointmentCard.style.transform = "translateX(0px)";
+						}
+					}
+				});
+			});
+		});
+	</script>
 </html>
