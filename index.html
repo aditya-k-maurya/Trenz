@@ -62,31 +62,34 @@
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
-			// Get all appointment cards
-			const appointmentCards = document.querySelectorAll(".appointment-card");
-			const windowWidth = window.innerWidth;
 
-			// Attach event listeners to each appointment card
-			appointmentCards.forEach((appointmentCard) => {
-				let startX = 0;
-				const appointmentBox =
-					appointmentCard.querySelector(".appointment-box");
+			document
+				.querySelectorAll(".appointment-card")
+				.forEach((appointmentCard) => {
+					let startX = 0;
+					let windowWidth = window.innerWidth; 
+					appointmentCard.addEventListener("touchstart", handleStart);
+					appointmentCard.addEventListener("touchend", handleEnd);
 
-				appointmentCard.addEventListener("mousedown", function (event) {
-					startX = event.clientX;
-				});
+					function handleStart(event) {
+						startX = event.touches[0].clientX;
+					}
 
-				appointmentCard.addEventListener("mouseup", function (event) {
-					const deltaX = event.clientX - startX;
-					if (windowWidth < 650) {
-						if (deltaX < -50) {
-							appointmentBox.style.transform = "translateX(-140px)";
-						} else {
-							appointmentBox.style.transform = "translateX(0px)";
+					function handleEnd(event) {
+						const deltaX = event.changedTouches[0].clientX - startX;
+						windowWidth = window.innerWidth; 
+						const appointmentBox =
+							appointmentCard.querySelector(".appointment-box");
+
+						if (windowWidth < 650) {
+							if (deltaX < -50) {
+								appointmentBox.style.transform = "translateX(-140px)";
+							} else {
+								appointmentBox.style.transform = "translateX(0px)";
+							}
 						}
 					}
 				});
-			});
 		});
 	</script>
 </html>
