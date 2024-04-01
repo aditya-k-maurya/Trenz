@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<section class="appointment">
-      <img class="trenz-bg" src="img/trenz-bg.jpg" alt="">
+			<img class="trenz-bg" src="img/trenz-bg.jpg" alt="" />
 			<div class="appointment-container">
 				<div class="hero">
-					<img src="img/trenz-logo-lq.png" alt="">
+					<img src="img/trenz-logo-lq.png" alt="" />
 				</div>
 
 				<div class="appointment-btns">
@@ -34,22 +34,21 @@
 					</div>
 					<div class="appointment-card-container">
 						<div class="appointment-card">
-							<div class="card-text">
-								<h3>Trial Bride Updo</h3>
-								<p>10:20 AM | 40 Minute(s)</p>
+							<div class="appointment-box">
+								<div class="card-text">
+									<h3>Trial Bride Updo</h3>
+									<p>10:20 AM | 40 Minute(s)</p>
+								</div>
+								<img class="appointment-done-img" src="img/accept.png" alt="" />
 							</div>
 							<div class="appointment-option">
-								<img class="appointment-done-img" src="img/accept.png" alt="" />
-
-								<div class="appointment-more">
-									<div class="edit-btn">
-										<img src="img/more.png" alt="Edit" />
-										<p>Edit</p>
-									</div>
-									<div class="delete-btn">
-										<img src="img/close.png" alt="Edit" />
-										<p>Delete</p>
-									</div>
+								<div class="edit-btn">
+									<img src="img/more.png" alt="Edit" />
+									<p>Edit</p>
+								</div>
+								<div class="delete-btn">
+									<img src="img/close.png" alt="Edit" />
+									<p>Delete</p>
 								</div>
 							</div>
 						</div>
@@ -70,8 +69,8 @@
 			// Attach event listeners to each appointment card
 			appointmentCards.forEach((appointmentCard) => {
 				let startX = 0;
-				let appointmentMore =
-					appointmentCard.querySelector(".appointment-more");
+				const appointmentBox =
+					appointmentCard.querySelector(".appointment-box");
 
 				appointmentCard.addEventListener("mousedown", function (event) {
 					startX = event.clientX;
@@ -81,14 +80,9 @@
 					const deltaX = event.clientX - startX;
 					if (windowWidth < 650) {
 						if (deltaX < -50) {
-							console.log("here");
-							appointmentMore.style.display = "flex";
-							appointmentMore.style.right = "0px";
-							appointmentCard.style.transform = "translateX(-140px)";
+							appointmentBox.style.transform = "translateX(-140px)";
 						} else {
-							appointmentMore.style.display = "none";
-							appointmentMore.style.right = "-140px";
-							appointmentCard.style.transform = "translateX(0px)";
+							appointmentBox.style.transform = "translateX(0px)";
 						}
 					}
 				});

@@ -21,16 +21,22 @@
 
 .appointment-container {
 	background-color: white;
-	max-width: 800px;
+	max-width: 1200px;
 	margin: auto;
 	border-radius: 20px;
-	padding: 2rem 4%;
+	padding: 20px 4%;
+  overflow: hidden;
+
 }
 
 .hero {
 	padding: 4rem 0;
 	text-align: center;
 	border-bottom: 2px solid rgb(168, 168, 168);
+}
+
+.hero img {
+	width: 55%;
 }
 /* 
 .hero h1 {
@@ -113,10 +119,26 @@ form {
 	position: relative;
 	height: 80px;
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	border-bottom: 1px solid gray;
+}
+
+.appointment-box {
+	display: flex;
+  background-color: white;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+  height: 100%;
 	transition: all 0.3s ease-in-out;
+	z-index: 5;
+}
+
+.appointment-option {
+	height: 80px;
+	display: flex;
+	height: 100%;
+	align-items: center;
 }
 
 .card-text h3 {
@@ -135,20 +157,6 @@ form {
 	width: 30px;
 	height: 30px;
 	/* display: none; */
-}
-
-.appointment-option {
-	height: 80px;
-	display: flex;
-	height: 100%;
-	align-items: center;
-}
-
-.appointment-more {
-	display: flex;
-	height: 100%;
-	max-width: 200px;
-	transition: all 0.3s ease-in-out;
 }
 
 .edit-btn {
@@ -183,13 +191,17 @@ form {
 	cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 	.trenz-bg {
 		display: none;
 	}
 
+	.appointment {
+		padding-top: 0;
+	}
+
 	.hero {
-		padding: 2rem 0 4rem 0;
+		padding: 4rem 0;
 	}
 }
 
@@ -198,50 +210,47 @@ form {
 		padding: 2rem 20px;
 	}
 
-	/* .hero h1 {
-		font-size: 4.5rem;
-		line-height: 4.5rem;
-		margin-bottom: -0.6rem;
-	}
-
-	.hero p {
-		font-size: 0.6rem;
-		display: inline;
-		font-weight: 700;
-		margin-right: -4rem;
-	} */
-
 	.appointment-btns {
 		gap: 0.5rem;
 	}
 
 	.appointment-btn,
 	.transaction-btn {
-		padding: 6px 1rem;
+		padding: 5px 12px;
 		font-size: 0.9rem;
 	}
 
+	.appointment-card {
+		height: 60px;
+	}
+
 	.appointment h2 {
-		font-size: 2.4rem;
+		font-size: 2.2rem;
 		margin-top: 1rem;
 		font-weight: 400;
 	}
 
 	.current-date h4 {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
+		display: flex;
+		align-items: center;
 	}
 
 	.card-text h3 {
-		font-size: 1.4rem;
+		font-size: 1.2rem;
 	}
 
 	.card-text p {
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 	}
 
-	.appointment-more {
-		display: none;
-		max-width: 0px;
+	.appointment-box {
+		width: 100%;
+	}
+
+	.appointment-option {
 		position: absolute;
+		right: 0;
+		z-index: 1;
 	}
 }

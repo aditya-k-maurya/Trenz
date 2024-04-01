@@ -1235,22 +1235,23 @@ function createAppointmentCard(appointment) {
 	appointmentCard.classList.add("appointment-card");
 
 	appointmentCard.innerHTML = `
+      <div class = "appointment-box">
         <div class="card-text">
-            <h3>${appointment.template_name}</h3>
-            <p>${startTime(appointment.start_time)} | ${durationString}</p>
+          <h3>${appointment.template_name}</h3>
+          <p>${startTime(appointment.start_time)} | ${durationString}</p>
         </div>
+          <img class="appointment-done-img" src="img/accept.png" alt="" />
+
+      </div>
         <div class="appointment-option">
-            <img class="appointment-done-img" src="img/accept.png" alt="" />
-            <div class="appointment-more">
-							<div class="edit-btn">
-								<img src="img/more.png" alt="Edit" />
-								<p>Edit</p>
-							</div>
-							<div class="delete-btn">
-								<img src="img/close.png" alt="Edit" />
-								<p>Delete</p>
-							</div>
-						</div>
+					<div class="edit-btn">
+						<img src="img/more.png" alt="Edit" />
+						<p>Edit</p>
+					</div>
+					<div class="delete-btn">
+						<img src="img/close.png" alt="Edit" />
+						<p>Delete</p>
+					</div>
         </div>
     `;
 	return appointmentCard;
