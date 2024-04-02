@@ -118,6 +118,7 @@ form {
 .current-date h4 {
 	text-transform: uppercase;
 	font-size: 1rem;
+	/* color: rgb(170, 1, 1); */
 }
 
 .appointment-card {
@@ -265,5 +266,97 @@ form {
 		position: absolute;
 		right: 0;
 		z-index: 1;
+	}
+}
+
+/* Menu section */
+
+.menu {
+	padding: 25px;
+	position: fixed;
+	bottom: 0;
+	z-index: 10;
+	background-color: white;
+	width: 100%;
+}
+
+.menu-heading {
+	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: rgb(173, 173, 173);
+	text-align: center;
+	margin-bottom: 1rem;
+	letter-spacing: 0.2rem;
+}
+.menu-container {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.menu-item img {
+	width: 40px;
+	height: 40px;
+}
+
+.menu-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-item p {
+	margin-top: 5px;
+	font-weight: 700;
+	font-size: 0.9rem;
+	text-align: center;
+}
+
+.menu-display {
+	padding: 15px;
+	background-color: black;
+	border-radius: 50%;
+	position: fixed;
+	right: 5%;
+	bottom: 10%;
+	display: none;
+	cursor: pointer;
+	border: 2px solid white;
+}
+
+.menu-display img {
+	width: 35px;
+	height: 35px;
+	filter: invert(100%);
+	transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 650px) {
+	.menu-display {
+		display: block;
+	}
+
+	.menu-heading {
+		display: none;
+	}
+
+	.menu {
+		width: max-content;
+		bottom: calc(10% + 80px);
+		right: 4%;
+		background-color: rgb(235, 235, 235);
+		border-radius: 15px;
+		max-height: 0px;
+		overflow: hidden;
+		/* display: none; */
+		right: -100%;
+		transition: max-height 0.3s ease-in-out;
+	}
+	.menu-container {
+		flex-direction: column;
+		width: max-content;
 	}
 }

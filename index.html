@@ -84,9 +84,41 @@
 				</div>
 			</div>
 		</section>
+
+		<!-- menu section -->
+
+		<div class="menu-display">
+			<img id="menuIcon" src="img/menu.png" alt="" />
+		</div>
+
+		<div id="menu" class="menu">
+			<div class="menu-heading">Appintments</div>
+			<div class="menu-container">
+				<div class="menu-item">
+					<img src="img/home.png" alt="Home" />
+					<p>Home</p>
+				</div>
+				<div class="menu-item">
+					<img src="img/add-event.png" alt="" />
+					<p>Add</p>
+				</div>
+				<div class="menu-item">
+					<img src="img/website.png" alt="" />
+					<p>View</p>
+				</div>
+				<div class="menu-item">
+					<img src="img/calendar.png" alt="" />
+					<p>History</p>
+				</div>
+				<div class="menu-item">
+					<img src="img/setting.png" alt="Setting" />
+					<p>Setting</p>
+				</div>
+			</div>
+		</div>
 	</body>
 
-	<script src="script.js"></script>
+	<script src="script/appointment.js"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
@@ -133,6 +165,26 @@
 					resetSwipedBox();
 				}
 			});
+		});
+
+		// menu script
+
+		const menuDisplay = document.querySelector(".menu-display");
+		const menuContainer = document.getElementById("menu");
+		const menuIcon = document.getElementById("menuIcon");
+
+		menuDisplay.addEventListener("click", function () {
+			if (menuContainer.style.maxHeight === "1000px") {
+				// menuContainer.style.display = "none";
+				menuContainer.style.maxHeight = "0px";
+				menuContainer.style.right = "-100%";
+				menuIcon.src = "img/menu.png";
+			} else {
+				// menuContainer.style.display = "block";
+				menuIcon.src = "img/close1.png";
+				menuContainer.style.right = "4%";
+				menuContainer.style.maxHeight = "1000px";
+			}
 		});
 	</script>
 </html>
