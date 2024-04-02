@@ -54,6 +54,34 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="transaction-container">
+					<div class="current-date">
+						<h4>September 12, 2023</h4>
+						<img src="img/add.png" alt="" />
+					</div>
+					<div class="appointment-card-container">
+						<div class="appointment-card">
+							<div class="appointment-box">
+								<div class="card-text">
+									<h3>Trial Bride Updo</h3>
+									<p>10:20 AM | 40 Minute(s)</p>
+								</div>
+								<img class="appointment-done-img" src="img/accept.png" alt="" />
+							</div>
+							<div class="appointment-option">
+								<div class="edit-btn">
+									<img src="img/more.png" alt="Edit" />
+									<p>Edit</p>
+								</div>
+								<div class="delete-btn">
+									<img src="img/close.png" alt="Edit" />
+									<p>Delete</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	</body>
@@ -62,34 +90,49 @@
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
+			let currentSwipedBox = null; // Keep track of the currently swiped box
+
+			function handleStart(event) {
+				if (currentSwipedBox && currentSwipedBox !== event.currentTarget) {
+					resetSwipedBox(); // Reset the previously swiped box
+				}
+				currentSwipedBox = event.currentTarget;
+				currentSwipedBox.startX = event.touches[0].clientX;
+			}
+
+			function handleEnd(event) {
+				const deltaX =
+					event.changedTouches[0].clientX - currentSwipedBox.startX;
+				const windowWidth = window.innerWidth;
+				const appointmentBox =
+					currentSwipedBox.querySelector(".appointment-box");
+
+				if (windowWidth < 650) {
+					appointmentBox.style.transform =
+						deltaX < -50 ? "translateX(-100px)" : "translateX(0px)";
+				}
+			}
+
+			function resetSwipedBox() {
+				const appointmentBox =
+					currentSwipedBox.querySelector(".appointment-box");
+				appointmentBox.style.transform = "translateX(0px)";
+				currentSwipedBox = null;
+			}
 
 			document
 				.querySelectorAll(".appointment-card")
 				.forEach((appointmentCard) => {
-					let startX = 0;
-					let windowWidth = window.innerWidth; 
+					appointmentCard.startX = 0;
 					appointmentCard.addEventListener("touchstart", handleStart);
 					appointmentCard.addEventListener("touchend", handleEnd);
-
-					function handleStart(event) {
-						startX = event.touches[0].clientX;
-					}
-
-					function handleEnd(event) {
-						const deltaX = event.changedTouches[0].clientX - startX;
-						windowWidth = window.innerWidth; 
-						const appointmentBox =
-							appointmentCard.querySelector(".appointment-box");
-
-						if (windowWidth < 650) {
-							if (deltaX < -50) {
-								appointmentBox.style.transform = "translateX(-140px)";
-							} else {
-								appointmentBox.style.transform = "translateX(0px)";
-							}
-						}
-					}
 				});
+
+			document.body.addEventListener("click", function (event) {
+				if (!event.target.closest(".appointment-card")) {
+					resetSwipedBox();
+				}
+			});
 		});
 	</script>
 </html>

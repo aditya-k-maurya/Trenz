@@ -1259,10 +1259,17 @@ function createAppointmentCard(appointment) {
 
 function startTime(time) {
 	const date = new Date(time);
-	const hours = date.getHours().toString().padStart(2, "0");
+	let hours = date.getHours();
 	const minutes = date.getMinutes().toString().padStart(2, "0");
-	return `${hours}:${minutes}`;
+	const meridiem = hours >= 12 ? "PM" : "AM";
+
+	hours = hours % 12 || 12;
+
+	hours = hours.toString().padStart(2, "0");
+
+	return `${hours}:${minutes} ${meridiem}`;
 }
+
 
 function formatDate(dateString) {
 	const options = { year: "numeric", month: "long", day: "numeric" };

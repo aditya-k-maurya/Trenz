@@ -7,7 +7,7 @@
 }
 
 .appointment {
-	padding-top: 3rem;
+	padding-top: 5rem;
 }
 
 .trenz-bg {
@@ -25,8 +25,7 @@
 	margin: auto;
 	border-radius: 20px;
 	padding: 20px 4%;
-  overflow: hidden;
-
+	overflow: hidden;
 }
 
 .hero {
@@ -61,18 +60,23 @@
 }
 
 .appointment-btn {
+	height: 35px;
 	background-color: rgb(189, 0, 0);
 	color: white;
-	padding: 10px 30px;
+	padding: 0px 30px;
 	border-radius: 5px;
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 }
 
 .transaction-btn {
 	border: 2px solid gray;
 	color: gray;
-	padding: 10px 30px;
+	padding: 0px 30px;
 	border-radius: 5px;
+	display: flex;
+	align-items: center;
 	cursor: pointer;
 }
 
@@ -93,7 +97,8 @@ form {
 	font-weight: 600;
 }
 
-.appointment-date {
+.appointment-date,
+.transaction-container {
 	margin-top: 2rem;
 }
 
@@ -120,16 +125,16 @@ form {
 	height: 80px;
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid gray;
+	border-bottom: 1px solid rgb(219, 219, 219);
 }
 
 .appointment-box {
 	display: flex;
-  background-color: white;
+	background-color: white;
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-  height: 100%;
+	height: 100%;
 	transition: all 0.3s ease-in-out;
 	z-index: 5;
 }
@@ -160,7 +165,7 @@ form {
 }
 
 .edit-btn {
-	background-color: rgb(156, 156, 156);
+	background-color: rgb(184, 184, 184);
 	width: 70px;
 	display: flex;
 	align-items: center;
@@ -168,6 +173,7 @@ form {
 	flex-direction: column;
 	height: 100%;
 	color: white;
+	font-size: 0.8rem;
 }
 
 .delete-btn {
@@ -179,6 +185,7 @@ form {
 	flex-direction: column;
 	height: 100%;
 	color: white;
+	font-size: 0.8rem;
 }
 
 .edit-btn img,
@@ -222,6 +229,12 @@ form {
 
 	.appointment-card {
 		height: 60px;
+	}
+
+	.edit-btn,
+	.delete-btn {
+		font-size: 0.6rem;
+		width: 50px;
 	}
 
 	.appointment h2 {
