@@ -1250,7 +1250,7 @@ function createAppointmentCard(appointment) {
 					</div>
 					<div class="delete-btn">
 						<img src="img/close.png" alt="Edit" />
-						<p>Delete</p>
+						<p>Cancel</p>
 					</div>
         </div>
     `;
