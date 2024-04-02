@@ -224,7 +224,7 @@ form {
 	}
 
 	.hero img {
-		width: 55%;
+		width: 60%;
 	}
 
 	.appointment-btns {
@@ -281,21 +281,25 @@ form {
 /* Menu section */
 
 .menu {
-	padding: 25px;
+	padding: 20px 25px 25px 25px;
 	position: fixed;
 	bottom: 0;
 	z-index: 10;
 	background-color: white;
-	width: 100%;
+	width: 100vw;
+	right: 0;
+	border-top: 1.5px solid #959595;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .menu-heading {
-	font-size: 1rem;
+	font-size: 0.8rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	color: rgb(173, 173, 173);
 	text-align: center;
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 	letter-spacing: 0.2rem;
 }
 .menu-container {
@@ -305,8 +309,8 @@ form {
 }
 
 .menu-item img {
-	width: 40px;
-	height: 40px;
+	width: 33px;
+	height: 33px;
 }
 
 .menu-item {
@@ -336,7 +340,7 @@ form {
 	display: flex;
 	align-items: center;
 	justify-self: center;
-	border: 2px solid white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .menu-display img {
@@ -360,7 +364,7 @@ form {
 		padding: 15px;
 		bottom: calc(10% + 60px);
 		right: calc(5% - 10px);
-		background-color: rgb(235, 235, 235);
+		/* background-color: rgb(235, 235, 235); */
 		border-radius: 15px;
 		max-height: 0px;
 		overflow: hidden;
