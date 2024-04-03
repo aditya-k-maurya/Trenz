@@ -105,6 +105,10 @@ form {
 	margin-top: 2rem;
 }
 
+/* .appointment-date {
+	display: none;
+} */
+
 .current-date {
 	display: flex;
 	justify-content: space-between;
@@ -277,6 +281,8 @@ form {
 		z-index: 1;
 	}
 }
+
+/* transaction section */
 
 /* Menu section */
 
