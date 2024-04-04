@@ -105,9 +105,9 @@ form {
 	margin-top: 2rem;
 }
 
-/* .appointment-date {
+.appointment-date {
 	display: none;
-} */
+}
 
 .current-date {
 	display: flex;
@@ -167,7 +167,7 @@ form {
 	cursor: pointer;
 }
 
-.appointment-card img {
+.appointment-date img {
 	width: 25px;
 	height: 25px;
 	margin-bottom: 2px;
@@ -283,6 +283,43 @@ form {
 }
 
 /* transaction section */
+
+.transaction-type {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.transaction-option {
+	width: 80px;
+	background-color: rgb(189, 0, 0);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.transaction-download {
+	filter: invert(100%);
+	width: 20px;
+	height: 20px;
+}
+
+.transaction-option p {
+	font-size: 0.7rem;
+	margin-top: 0.2rem;
+}
+
+.transaction-payment {
+	padding-right: 0.8rem;
+}
+
+@media (max-width:650px) {
+	.transaction-payment{
+		padding-right: 0px;
+	}
+}
 
 /* Menu section */
 
