@@ -73,6 +73,7 @@
 
 .transaction-btn {
 	border: 2px solid gray;
+	background-color: white;
 	color: gray;
 	padding: 0px 20px;
 	border-radius: 5px;
@@ -163,7 +164,8 @@ form {
 	cursor: pointer;
 }
 
-.appointment-date img {
+.appointment-date img,
+.transaction-container img {
 	width: 25px;
 	height: 25px;
 	margin-bottom: 2px;

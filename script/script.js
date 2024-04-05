@@ -10,12 +10,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	appointBtn.addEventListener("click", (event) => {
 		appointmentTitle.textContent = "Appointments";
+		appointBtn.style.color = "white";
+		appointBtn.style.backgroundColor = "rgb(189, 0, 0)";
+		appointBtn.style.border = "none";
+		transBtn.style.color = "gray";
+		transBtn.style.backgroundColor = "white";
+		transBtn.style.border = "2px solid gray";
 		transactionCont.style.display = "none";
 		appointmentCont.style.display = "block";
 	});
 
 	transBtn.addEventListener("click", (event) => {
 		appointmentTitle.textContent = "Transactions";
+		transBtn.style.color = "white";
+		transBtn.style.backgroundColor = "rgb(189, 0, 0)";
+		transBtn.style.border = "none";
+		appointBtn.style.color = "gray";
+		appointBtn.style.backgroundColor = "white";
+		appointBtn.style.border = " 2px solid gray";
 		transactionCont.style.display = "block";
 		appointmentCont.style.display = "none";
 	});
