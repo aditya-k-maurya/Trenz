@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const appointmentCont = document.querySelector(".appointment-date");
 	const transactionCont = document.querySelector(".transaction-container");
 
+	const appointmentHide = document.querySelector("#appointment-hide");
+
 	appointBtn.addEventListener("click", (event) => {
 		appointmentTitle.textContent = "Appointments";
 		appointBtn.style.color = "white";
@@ -18,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		transBtn.style.border = "2px solid gray";
 		transactionCont.style.display = "none";
 		appointmentCont.style.display = "block";
+		appointmentHide.style.display = "flex";
 	});
 
 	transBtn.addEventListener("click", (event) => {
@@ -30,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		appointBtn.style.border = " 2px solid gray";
 		transactionCont.style.display = "block";
 		appointmentCont.style.display = "none";
+		appointmentHide.style.display = "none";
 	});
 
 	// swipe feature

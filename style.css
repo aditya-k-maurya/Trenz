@@ -151,6 +151,10 @@ form {
 	align-items: center;
 }
 
+.transaction-card-container .card-text {
+	max-width: 45%;
+}
+
 .card-text h3 {
 	font-size: 20px;
 }
@@ -286,8 +290,11 @@ form {
 /* transaction section */
 
 .transaction-type {
+	position: absolute;
+	left: 50%;
 	font-weight: 600;
 	font-size: 1.2rem;
+	z-index: 20;
 }
 
 .transaction-option {
