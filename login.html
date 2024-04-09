@@ -20,26 +20,56 @@
 					<p class="title">Login</p>
 					<p class="sub-title">
 						By continuing, you agree to our 
-						<span>Terms and Conditions</span> and <span> </span> .
+						<span>Terms and Conditions</span> and <span>Privacy Policy</span> .
 					</p>
 					<form class="form">
 						<input type="email" class="input" placeholder="Email" />
-						<input type="password" class="input" placeholder="Password" />
+						<div class="password">
+							<input
+								type="password"
+								class="input"
+								id="passwordInput"
+								placeholder="Password" />
+							<img src="img/view.png" alt="Show password" id="showHideButton" />
+						</div>
+
 						<div class="remember-container">
 							<div class="remember">
-								<input type="checkbox" name="remember" />
-								<label for="remember">Remember me</label>
+								<input type="checkbox" name="remember-text" />
+								<label for="remember-text">Remember me</label>
 							</div>
 
-              <div class="forgot">Forgot password</div>
+							<div class="forgot">Forgot password</div>
 						</div>
-						<button class="form-btn">Login</button>
+						<button type="submit" class="form-btn">Login</button>
 					</form>
 					<p class="sign-up-label">
-						New to trenz? <span class="sign-up-link">Signup</span>
+						New to trenz? <span class="sign-up-link">SignUp</span>
 					</p>
+					<div class="login-foot">
+						<a href="">Create an Account</a>
+            <div class="foot-dot"></div>
+            <a href="">Forgot Password</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
+
+	<script>
+		document
+			.getElementById("showHideButton")
+			.addEventListener("click", function () {
+				var passwordInput = document.getElementById("passwordInput");
+				var showHideButton = document.getElementById("showHideButton");
+
+				if (passwordInput.type === "password") {
+					passwordInput.type = "text";
+					showHideButton.src = "img/hide.png"; // Change the src attribute to hide image
+				} else {
+					passwordInput.type = "password";
+					showHideButton.src = "img/view.png"; // Change the src attribute to view image
+				}
+			});
+	</script>
 </html>
