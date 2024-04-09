@@ -229,3 +229,11 @@
 	justify-content: center;
 	align-items: center;
 }
+
+/* reset page */
+
+@media (max-width: 650px) {
+	.reset-label {
+		display: block;
+	}
+}
