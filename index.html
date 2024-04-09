@@ -3,125 +3,30 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-
+		<title>Trenz | Welcome</title>
 		<link rel="stylesheet" href="css/global.css" />
-		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
-		<section class="appointment">
-			<img class="trenz-bg" src="img/trenz-bg.jpg" alt="" />
-			<div class="appointment-container">
-				<div class="hero">
-					<img src="img/trenz-logo-lq.png" alt="" />
-				</div>
-
-				<div class="appointment-btns">
-					<div id="appointment-btn" class="appointment-btn">APPOINTMENTS</div>
-					<div id="transaction-btn" class="transaction-btn">TRANSACTIONS</div>
-				</div>
-
-				<h2 id="appointment-title">Appointments</h2>
-
-				<form id="appointment-hide" action="">
-					<input type="checkbox" id="showCheckbox" />
-					<label for="showCheckbox">Show hidden</label>
-				</form>
-
-				<div class="appointment-date">
-					<div class="current-date">
-						<h4>September 12, 2023</h4>
-						<img src="img/add.png" alt="" />
-					</div>
-					<div class="appointment-card-container">
-						<div class="appointment-card">
-							<div class="appointment-box">
-								<div class="card-text">
-									<h3>Trial Bride Updo</h3>
-									<p>10:20 AM | 40 Minute(s)</p>
-								</div>
-								<img class="appointment-done-img" src="img/accept.png" alt="" />
-							</div>
-							<div class="appointment-option">
-								<div class="edit-btn">
-									<img src="img/more.png" alt="Edit" />
-									<p>Edit</p>
-								</div>
-								<div class="delete-btn">
-									<img src="img/close.png" alt="Edit" />
-									<p>Cancel</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="transaction-container" style="display: none">
-					<div class="current-date">
-						<h4>September 12, 2023</h4>
-						<img src="img/add.png" alt="" />
-					</div>
-					<div class="transaction-card-container">
-						<div class="appointment-card">
-							<div class="appointment-box">
-								<div class="card-text">
-									<h3>Trial Bride Updo</h3>
-									<p>10:20 AM</p>
-								</div>
-								<div class="transaction-type">Visa</div>
-								<div class="card-text transaction-payment">
-									<h3>$270</h3>
-									<p>+$5.4</p>
-								</div>
-							</div>
-							<div class="transaction-option">
-								<img
-									class="transaction-download"
-									src="img/download.png"
-									alt="" />
-								<p>Reciept</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- menu section -->
-
-		<div class="menu-display">
-			<img id="menuIcon" src="img/menu.png" alt="" />
+		<div class="header">
+			<img src="img/trenz-logo-lq.png" alt="trenz" />
 		</div>
 
-		<div id="menu" class="menu">
-			<div class="menu-heading">Appointments</div>
-			<div class="menu-container">
-				<div class="menu-item">
-					<img src="img/home.png" alt="Home" />
-					<p>Home</p>
-				</div>
-				<div class="menu-item">
-					<img src="img/add-event.png" alt="" />
-					<p>Add</p>
-				</div>
-				<div class="menu-item">
-					<img src="img/website.png" alt="" />
-					<p>View</p>
-				</div>
-				<div class="menu-item">
-					<img src="img/calendar.png" alt="" />
-					<p>History</p>
-				</div>
-				<div class="menu-item">
-					<img src="img/setting.png" alt="Setting" />
-					<p>Setting</p>
+		<img class="bg-img" src="img/trenz-bg.jpg" alt="" />
+
+		<div class="main-content">
+			<div class="signup-container">
+				<div class="form-container">
+					<p class="title">Welcome Julia!</p>
+					<p class="sub-title">What are you looking for today?</p>
+					<div class="form">
+						<button class="btn">
+							<a href="appointment.html">Appointment and History</a>
+						</button>
+						<button class="btn"><a href="#">Book an Appointment</a></button>
+					</div>
 				</div>
 			</div>
 		</div>
 	</body>
-
-	<script src="script/appointment.js"></script>
-	<script src="script/transaction.js"></script>
-
-	<script src="script/script.js"></script>
 </html>

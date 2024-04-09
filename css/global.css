@@ -17,4 +17,54 @@ body::-webkit-scrollbar {
 	display: none;
 }
 
+/* header */
 
+.header {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--white-color);
+}
+
+.header img {
+	height: 60px;
+	width: auto;
+	margin: 20px 0;
+}
+
+/* main */
+.bg-img {
+	position: fixed;
+	left: 0;
+	top: 0px;
+	bottom: 0;
+	width: 100vw;
+	height: 100%;
+	max-height: max-content;
+	z-index: -1;
+	object-fit: cover;
+	object-position: top left;
+}
+.main-content {
+	padding: 40px 20px;
+	height: calc(100vh - 100px);
+}
+
+.btn {
+	font-size: 1rem;
+	padding: 12px 15px;
+	border-radius: 5px;
+	border: 0 !important;
+	outline: 0 !important;
+	background: var(--primary-color);
+	color: var(--white-color);
+	cursor: pointer;
+	/* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+
+a{
+  color: var(--white-color);
+  
+}
