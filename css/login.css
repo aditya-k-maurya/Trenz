@@ -78,9 +78,6 @@
 	width: 100%;
 }
 
-
-
-
 .remember-container {
 	display: flex;
 	justify-content: space-between;
@@ -186,6 +183,12 @@
 }
 
 /* reset page */
+
+.reset-btns {
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+}
 
 @media (max-width: 650px) {
 	.reset-label {
