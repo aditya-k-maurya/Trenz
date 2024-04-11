@@ -49,11 +49,19 @@
 						</div>
 
 						<div class="signup-phone">
+							<div class="signup-phone-img">
+								<img src="img/canada.png" alt="" />
+							</div>
+
+							<div class="signup-phone-prefix">
+								<p>+1</p>
+							</div>
+
 							<input
-								type="number"
+								type="text"
 								class="input"
 								id="phone-number"
-								placeholder="+1 (xxx)-xxx-xxxx"
+								placeholder="(xxx) xxx-xxxx"
 								required />
 						</div>
 
@@ -62,6 +70,10 @@
 					<p class="sign-up-label">
 						Already have an Account? <span class="sign-up-link">Login</span>
 					</p>
+
+					<div class="trenz-rights">
+						<p>© Trenz. All rights reserved</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -103,27 +115,33 @@
 				}
 			});
 
-		function formatPhoneNumber(input) {
-			var numericValue = input.value.replace(/\D/g, "");
+		document.addEventListener("DOMContentLoaded", function () {
+			const phoneNumberInput = document.getElementById("phone-number");
 
-			var formattedValue =
-				"(" +
-				numericValue.substring(0, 3) +
-				")-" +
-				numericValue.substring(3, 6) +
-				"-" +
-				numericValue.substring(6, 10);
+			if (phoneNumberInput) {
+				phoneNumberInput.addEventListener("input", function (event) {
+					let rawPhoneNumber = event.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+					let formattedPhoneNumber = "";
 
-			input.value = formattedValue;
-		}
+					// Format the phone number based on its length
+					if (rawPhoneNumber.length <= 3) {
+						formattedPhoneNumber = rawPhoneNumber;
+					} else if (rawPhoneNumber.length <= 6) {
+						formattedPhoneNumber =
+							"(" + rawPhoneNumber.slice(0, 3) + ") " + rawPhoneNumber.slice(3);
+					} else {
+						formattedPhoneNumber =
+							"(" +
+							rawPhoneNumber.slice(0, 3) +
+							") " +
+							rawPhoneNumber.slice(3, 6) +
+							"-" +
+							rawPhoneNumber.slice(6);
+					}
 
-		var phoneNumberInput = document.getElementById("phone-number");
-
-		phoneNumberInput.addEventListener("input", function (event) {
-			clearTimeout(timeout);
-			timeout = setTimeout(function () {
-				formatPhoneNumber(event.target);
-			}, 500); // Adjust the delay as needed
+					phoneNumberInput.value = formattedPhoneNumber;
+				});
+			}
 		});
 	</script>
 </html>
