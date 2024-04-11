@@ -13,7 +13,7 @@
 .form-container {
 	background-color: var(--white-color);
 	width: 420px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	/* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 	border-radius: 5px;
 	padding: 35px 45px;
 }
@@ -243,4 +243,12 @@
 	.reset-label {
 		display: block;
 	}
+}
+
+/* change password */
+
+.trenz-reset-successful {
+	font-size: 12px;
+	color: green;
+	text-align: center;
 }
