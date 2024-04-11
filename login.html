@@ -29,22 +29,21 @@
 								type="password"
 								class="input"
 								id="passwordInput"
-								placeholder="Password" required/>
-							<img src="img/view.png" alt="Show password" id="showHideButton" />
+								placeholder="Password"
+								required />
+							<img src="img/hide.png" alt="Show password" id="showHideButton" />
 						</div>
 
-						<div class="remember-container">
-							<div class="forgot">Forgot password</div>
-						</div>
 						<button type="submit" class="btn">Login</button>
 					</form>
-					<p class="sign-up-label">
-						New to trenz? <span class="sign-up-link">SignUp</span>
-					</p>
 					<div class="login-foot">
 						<a href="">Create an Account</a>
-            <div class="foot-dot"></div>
-            <a href="">Forgot Password</a>
+						<div class="foot-dot"></div>
+						<a href="">Forgot Password</a>
+					</div>
+
+					<div class="trenz-rights">
+						<p>© Trenz. All rights reserved</p>
 					</div>
 				</div>
 			</div>
@@ -60,10 +59,10 @@
 
 				if (passwordInput.type === "password") {
 					passwordInput.type = "text";
-					showHideButton.src = "img/hide.png"; // Change the src attribute to hide image
+					showHideButton.src = "img/view.png"; // Change the src attribute to hide image
 				} else {
 					passwordInput.type = "password";
-					showHideButton.src = "img/view.png"; // Change the src attribute to view image
+					showHideButton.src = "img/hide.png"; // Change the src attribute to view image
 				}
 			});
 	</script>

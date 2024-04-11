@@ -23,12 +23,6 @@
 						<span>Terms and Conditions</span> and <span>Privacy Policy</span> .
 					</p>
 					<form class="form">
-						<input
-							type="name"
-							class="input"
-							placeholder="First Name"
-							required />
-						<input type="name" class="input" placeholder="Last Name" required />
 						<input type="email" class="input" placeholder="Email" required />
 
 						<div class="password">
@@ -38,14 +32,30 @@
 								id="passwordInput"
 								placeholder="Password"
 								required />
-							<img src="img/view.png" alt="Show password" id="showHideButton" />
+							<img src="img/hide.png" alt="Show password" id="showHideButton" />
 						</div>
 
-						<input
-							type="number"
-							class="input"
-							placeholder="Phone Nubmer"
-							required />
+						<div class="password">
+							<input
+								type="password"
+								class="input"
+								id="confirmPasswordInput"
+								placeholder="Confirm Password"
+								required />
+							<img
+								src="img/hide.png"
+								alt="Show password"
+								id="showConfirmHideButton" />
+						</div>
+
+						<div class="signup-phone">
+							<input
+								type="number"
+								class="input"
+								id="phone-number"
+								placeholder="+1 (xxx)-xxx-xxxx"
+								required />
+						</div>
 
 						<button type="submit" class="btn">Create</button>
 					</form>
@@ -58,19 +68,62 @@
 	</body>
 
 	<script>
+		// password visibality
 		document
 			.getElementById("showHideButton")
 			.addEventListener("click", function () {
-				var passwordInput = document.getElementById("passwordInput");
-				var showHideButton = document.getElementById("showHideButton");
+				const passwordInput = document.getElementById("passwordInput");
+				const showHideButton = document.getElementById("showHideButton");
 
 				if (passwordInput.type === "password") {
 					passwordInput.type = "text";
-					showHideButton.src = "img/hide.png"; // Change the src attribute to hide image
+					showHideButton.src = "img/view.png"; // Change the src attribute to hide image
 				} else {
 					passwordInput.type = "password";
-					showHideButton.src = "img/view.png"; // Change the src attribute to view image
+					showHideButton.src = "img/hide.png"; // Change the src attribute to view image
 				}
 			});
+
+		document
+			.getElementById("showConfirmHideButton")
+			.addEventListener("click", function () {
+				const confirmPasswordInput = document.getElementById(
+					"confirmPasswordInput"
+				);
+				const showConfirmHideButton = document.getElementById(
+					"showConfirmHideButton"
+				);
+
+				if (confirmPasswordInput.type === "password") {
+					confirmPasswordInput.type = "text";
+					showConfirmHideButton.src = "img/view.png"; // Change the src attribute to hide image
+				} else {
+					confirmPasswordInput.type = "password";
+					showConfirmHideButton.src = "img/hide.png"; // Change the src attribute to view image
+				}
+			});
+
+		function formatPhoneNumber(input) {
+			var numericValue = input.value.replace(/\D/g, "");
+
+			var formattedValue =
+				"(" +
+				numericValue.substring(0, 3) +
+				")-" +
+				numericValue.substring(3, 6) +
+				"-" +
+				numericValue.substring(6, 10);
+
+			input.value = formattedValue;
+		}
+
+		var phoneNumberInput = document.getElementById("phone-number");
+
+		phoneNumberInput.addEventListener("input", function (event) {
+			clearTimeout(timeout);
+			timeout = setTimeout(function () {
+				formatPhoneNumber(event.target);
+			}, 500); // Adjust the delay as needed
+		});
 	</script>
 </html>
