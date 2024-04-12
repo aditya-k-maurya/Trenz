@@ -1,3 +1,5 @@
+var currentPage;
+
 document.addEventListener("DOMContentLoaded", function () {
 	const appointmentsData = [
 		{
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			specific_service: "",
 			booking_concurrency: "1",
 			reminder_sent_48: true,
-			start_time: "2024-03-06T10:00",
+			start_time: "2025-03-06T10:00",
 			user_booked: false,
 			updated_at: "2024-02-28T17:15:58.414Z",
 			payment_products_total: 0,
@@ -1178,7 +1180,32 @@ document.addEventListener("DOMContentLoaded", function () {
 		return dateB - dateA;
 	});
 
-	renderAppointments(appointmentsData);
+	currentPage = "home";
+
+	const homePage = document.getElementById("home-page");
+	const historyPage = document.getElementById("history-page");
+	const viewPage = document.getElementById("view-page");
+
+	homePage.addEventListener("click", () => {
+		if (currentPage != "home") {
+			currentPage = "home";
+			renderAppointments(appointmentsData);
+		}
+	});
+
+	historyPage.addEventListener("click", () => {
+		if (currentPage != "history") {
+			currentPage = "history";
+			renderAppointments(appointmentsData);
+		}
+	});
+
+	viewPage.addEventListener("click", () => {
+		if (currentPage != "view") {
+			currentPage = "view";
+			renderAppointments(appointmentsData);
+		}
+	});
 });
 
 function renderAppointments(appointments) {
@@ -1190,18 +1217,44 @@ function renderAppointments(appointments) {
 	let currentContainer = null;
 
 	appointments.forEach((appointment) => {
+		const thisDateObject = new Date(appointment.start_time);
 		const thisDate = formatDate(appointment.start_time);
+		const todayDate = new Date();
 
-		if (thisDate !== currentDate) {
-			// Create a new date container
-			currentContainer = createAppointmentDateContainer(thisDate);
-			appointmentCardContainer.appendChild(currentContainer);
-			currentDate = thisDate;
+		if (currentPage === "home" && thisDateObject < todayDate) {
+			if (thisDate !== currentDate) {
+				// Create a new date container
+				currentContainer = createAppointmentDateContainer(thisDate);
+				appointmentCardContainer.appendChild(currentContainer);
+				currentDate = thisDate;
+			}
+
+			// Create an appointment card and append it to the current date container
+			const appointmentCard = createAppointmentCard(appointment);
+			currentContainer.appendChild(appointmentCard);
+		} else if (currentPage === "history" && thisDateObject > todayDate) {
+			if (thisDate !== currentDate) {
+				// Create a new date container
+				currentContainer = createAppointmentDateContainer(thisDate);
+				appointmentCardContainer.appendChild(currentContainer);
+				currentDate = thisDate;
+			}
+
+			// Create an appointment card and append it to the current date container
+			const appointmentCard = createAppointmentCard(appointment);
+			currentContainer.appendChild(appointmentCard);
+		} else {
+			if (thisDate !== currentDate) {
+				// Create a new date container
+				currentContainer = createAppointmentDateContainer(thisDate);
+				appointmentCardContainer.appendChild(currentContainer);
+				currentDate = thisDate;
+			}
+
+			// Create an appointment card and append it to the current date container
+			const appointmentCard = createAppointmentCard(appointment);
+			currentContainer.appendChild(appointmentCard);
 		}
-
-		// Create an appointment card and append it to the current date container
-		const appointmentCard = createAppointmentCard(appointment);
-		currentContainer.appendChild(appointmentCard);
 	});
 }
 
@@ -1269,7 +1322,6 @@ function startTime(time) {
 
 	return `${hours}:${minutes} ${meridiem}`;
 }
-
 
 function formatDate(dateString) {
 	const options = { year: "numeric", month: "long", day: "numeric" };
