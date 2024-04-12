@@ -1183,32 +1183,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	currentPage = document.body.id;
 
-	const homePage = document.getElementById("home-page");
-	const historyPage = document.getElementById("history-page");
-	const viewPage = document.getElementById("view-page");
-
-
-	homePage.addEventListener("click", () => {
-		if (currentPage !== "home") {
-			currentPage = "home";
-			renderAppointments(appointmentsData);
-		}
-	});
-
-	historyPage.addEventListener("click", () => {
-		if (currentPage !== "history") {
-			currentPage = "history";
-			renderAppointments(appointmentsData);
-		}
-	});
-
-	viewPage.addEventListener("click", () => {
-		if (currentPage !== "view") {
-			currentPage = "view";
-			renderAppointments(appointmentsData);
-		}
-	});
-
 	renderAppointments(appointmentsData);
 });
 

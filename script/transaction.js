@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 	const transactionData = [
 		{
-			booking_date: "2024-03-26T09:20",
+			booking_date: "2025-03-26T09:20",
 			template_price: 22,
 			client_full_name: "Garvit Bhatia",
 			transaction_date: "2024-03-24T12:33:28.388Z",
@@ -709,6 +709,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		return dateB - dateA;
 	});
 
+
 	renderTransaction(transactionData);
 });
 
@@ -723,17 +724,42 @@ function renderTransaction(transactions) {
 
 	transactions.forEach((transaction) => {
 		const thisDate = formatDate(transaction.booking_date);
+		const thisDateObject = new Date(transaction.booking_date);
 
-		if (thisDate !== currentDate) {
-			// Create a new date container
-			currentContainer = createTransactionDateContainer(thisDate);
-			transactionCardContainer.appendChild(currentContainer);
-			currentDate = thisDate;
+		if (currentPage === "home" && thisDateObject >= todayDate) {
+			if (thisDate !== currentDate) {
+				// Create a new date container
+				currentContainer = createTransactionDateContainer(thisDate);
+				transactionCardContainer.appendChild(currentContainer);
+				currentDate = thisDate;
+			}
+
+			// Create an transaction card and append it to the current date container
+			const transactionCard = createTransactionCard(transaction);
+			currentContainer.appendChild(transactionCard);
+		} else if (currentPage === "history" && thisDateObject <= todayDate) {
+			if (thisDate !== currentDate) {
+				// Create a new date container
+				currentContainer = createTransactionDateContainer(thisDate);
+				transactionCardContainer.appendChild(currentContainer);
+				currentDate = thisDate;
+			}
+
+			// Create an transaction card and append it to the current date container
+			const transactionCard = createTransactionCard(transaction);
+			currentContainer.appendChild(transactionCard);
+		} else if (currentPage === "view") {
+			if (thisDate !== currentDate) {
+				// Create a new date container
+				currentContainer = createTransactionDateContainer(thisDate);
+				transactionCardContainer.appendChild(currentContainer);
+				currentDate = thisDate;
+			}
+
+			// Create an transaction card and append it to the current date container
+			const transactionCard = createTransactionCard(transaction);
+			currentContainer.appendChild(transactionCard);
 		}
-
-		// Create an transaction card and append it to the current date container
-		const transactionCard = createTransactionCard(transaction);
-		currentContainer.appendChild(transactionCard);
 	});
 }
 
